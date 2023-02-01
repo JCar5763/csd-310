@@ -9,9 +9,10 @@ config = {
     "raise_on_warnings": True
 }
 
+#try/except block for the connection to the database
 try:
-
-    db = mysql.connector.connect(**config) # connect to the pysports database 
+    # connect to the database
+    db = mysql.connector.connect(**config)
 
     cursor = db.cursor()
 
@@ -39,6 +40,7 @@ try:
 
     input("\n\n  Press any key to continue... ")
 
+#try/except block for connecting to the database
 except mysql.connector.Error as err:
 
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
